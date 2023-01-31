@@ -57,7 +57,16 @@ With this following VirtualHost configuration, we’re telling Apache to serve v
 ```
 
 10. Using a2ensite to enable the new virtual host
+
 `sudo a2ensite valo`
+
+Disable the default and restart
+
+```
+sudo a2dissite 000-default
+sudo systemctl reload apache2
+```
+
 
 [^1]:
 ![kuva](https://user-images.githubusercontent.com/61313043/215742575-81417a2f-c6f8-4c57-86d9-72ec6c47f595.png)
