@@ -1,4 +1,4 @@
-#Server setup
+# Server setup
 
 Steps:
 
@@ -20,21 +20,44 @@ sudo service apache2 restart \
 
 `sudo apt-get install net-tools`
 
-7. Allow firewall 
+6. Allow firewall 
 
 `sudo ufw allow in "Apache"` \
 `sudo ufw allow in ssh`
 
 Now with VM port forwarding and Ubuntu ufw allowing I can acces the machine and website from my host. 
 
-5. Install MYSQL
+7. Install MYSQL
 
 `sudo apt install mysql-server`
 
-6. Installin PHP
+8. Install PHP
 
 `sudo apt install php libapache2-mod-php php-mysql`
 
+9. Creating a Virtual Host
+
+```
+sudo mkdir /var/www/valo
+sudo chown -R $USER:$USER /var/www/valo
+sudo nano /etc/apache2/sites-available/valo.conf
+``` 
+
+With this following VirtualHost configuration, we’re telling Apache to serve valo using /var/www/valo as the web root directory.
+
+```
+<VirtualHost *:80>
+    ServerName valo
+    ServerAlias www.valo
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/valo
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+10. Using a2ensite to enable the new virtual host
+`sudo a2ensite valo`
 
 [^1]:
 ![kuva](https://user-images.githubusercontent.com/61313043/215742575-81417a2f-c6f8-4c57-86d9-72ec6c47f595.png)
