@@ -12,13 +12,21 @@ Steps:
 sudo apt-get install apache2 \
 sudo service apache2 restart \
 `
-5. Istalled net-tools
+5. Installed net-tools
 `sudo apt-get install net-tools`
 
 7. Allow firewall 
 `sudo ufw allow in "Apache"`
+`sudo ufw allow in ssh`
 
-5. Install PHP 
+Now with VM port forwarding and Ubuntu ufw allowing I can acces the machine and website from my host. 
+
+5. Install MYSQL
+
+`sudo apt install mysql-server`
+
+6. Installin PHP
+`sudo apt install php libapache2-mod-php php-mysql`
 
 
 [^1]:
