@@ -2,21 +2,27 @@
 
 Steps:
 
-1. Downloaded ```ubuntu-22.10-live-server-amd64```
-2. Setting it up on VM VirtualBox Manager with settings[^1]
+1. Download
+
+ ```ubuntu-22.10-live-server-amd64```
+
+5. Setting it up on VM VirtualBox Manager with settings[^1]
 
 3. Server name valo, emma:changeme
 
 4. Install Apache2
+
 `sudo apt-get update \
 sudo apt-get install apache2 \
 sudo service apache2 restart \
 `
 5. Installed net-tools
+
 `sudo apt-get install net-tools`
 
 7. Allow firewall 
-`sudo ufw allow in "Apache"`
+
+`sudo ufw allow in "Apache"` \
 `sudo ufw allow in ssh`
 
 Now with VM port forwarding and Ubuntu ufw allowing I can acces the machine and website from my host. 
@@ -26,6 +32,7 @@ Now with VM port forwarding and Ubuntu ufw allowing I can acces the machine and 
 `sudo apt install mysql-server`
 
 6. Installin PHP
+
 `sudo apt install php libapache2-mod-php php-mysql`
 
 
